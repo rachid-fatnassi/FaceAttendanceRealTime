@@ -10,16 +10,26 @@ firebase_admin.initialize_app(cred, {
 ref = db.reference('Students')
 
 data = {
-    "321654":
+    "297653":
         {
-            "name": "Murtaza Hassan",
-            "major": "Robotics",
+            "name": "Rachid Fatnassi",
+            "major": "IT",
             "starting_year": 2017,
             "total_attendance": 7,
             "standing": "G",
             "year": 4,
             "last_attendance_time": "2022-12-11 00:54:34"
         },
+     "321656":
+        {
+            "name": "RANIA FATNASSI",
+            "major": "IT",
+            "starting_year": 2017,
+            "total_attendance": 7,
+            "standing": "G",
+            "year": 4,
+            "last_attendance_time": "2022-12-11 00:54:34"
+        },    
     "852741":
         {
             "name": "Emly Blunt",

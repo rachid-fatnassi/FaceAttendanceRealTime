@@ -20,7 +20,7 @@ firebase_admin.initialize_app(cred, {
 
 bucket = storage.bucket()
 
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(0)
 cap.set(3, 640)
 cap.set(4, 480)
 
@@ -51,7 +51,11 @@ imgStudent = []
 while True:
     success, img = cap.read()
 
-    imgS = cv2.resize(img, (0, 0), None, 0.25, 0.25)
+    if img is not None:
+        imgS = cv2.resize(img, (0, 0), None, 0.25, 0.25)
+    else:
+        print("Image is not loaded.")
+
     imgS = cv2.cvtColor(imgS, cv2.COLOR_BGR2RGB)
 
     faceCurFrame = face_recognition.face_locations(imgS)
@@ -136,6 +140,7 @@ while True:
                     cv2.putText(imgBackground, str(studentInfo['name']), (808 + offset, 445),
                                 cv2.FONT_HERSHEY_COMPLEX, 1, (50, 50, 50), 1)
 
+                    imgStudent = cv2.resize(imgStudent, (216, 216))
                     imgBackground[175:175 + 216, 909:909 + 216] = imgStudent
 
                 counter += 1
